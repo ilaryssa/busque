@@ -2,31 +2,21 @@ import * as React from 'react';
 import { BottomNavigation } from 'react-native-paper';
 import { Text, View } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
+import styles from './style';
 
 const RotaRoute = () => <Text
-style={{
-    textAlign: 'center',
-    fontSize: 20,
-    marginTop: 20,
-}}
->Rotas dos ônibus
+style={styles.bottomNavigation}
+  >Rotas dos ônibus
 </Text>;
 
 const DescontoRoute = () => <Text
-style={{
-    textAlign: 'center',
-    fontSize: 20,
-    marginTop: 20,
-}}
->Desconto</Text>;
+style={styles.bottomNavigation}
+  >Desconto
+</Text>;
 
 const AvisosRoute = () => <Text
-style={{
-    textAlign: 'center',
-    fontSize: 20,
-    marginTop: 20,
-}}
->Avisos
+style={styles.bottomNavigation}
+  >Avisos
 </Text>;
 
 const MyComponent = () => {
@@ -45,17 +35,9 @@ const MyComponent = () => {
 
 return (
     <SafeAreaProvider
-    style={{
-        flex:1,
-        width: '100%',
-    }}>
+    style={styles.container}>
       <Text
-        style={{
-            textAlign: 'center',
-            fontSize: 30,
-            marginTop: 50,
-            marginBottom: 20,
-        }}  
+        style={styles.title}  
       >
         BUSQUE
       </Text>
