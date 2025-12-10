@@ -1,14 +1,16 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet } from 'react-native';
-import InicialPage from './pages/inicialPage/InicialPage';
-import HomePage from './components/bottonNavigation/BottomNavigation';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
+import InicialPage from './pages/inicialPage/InicialPage';
+import BottomNavigation from './components/bottomNavigation/BottomNavigation';
+import NoticeRegisterPage from './pages/noticeRegisterPage/NoticeRegisterPage';
 
 export default function App() {
   return (
     <SafeAreaProvider style={styles.container}>
-      <HomePage/>
+      {/* <BottomNavigation/> */}
       {/* <InicialPage/> */}
+      <NoticeRegisterPage/>
     </SafeAreaProvider>
   );
 }
