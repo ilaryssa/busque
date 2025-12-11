@@ -28,6 +28,7 @@ export default function InputNotice() {
                         setValue(''); 
                     }}
                     style={styles.button}
+                    textColor='#fffeee'
                 >
                     Enviar
                 </Button>
