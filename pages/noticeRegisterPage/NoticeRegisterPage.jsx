@@ -8,7 +8,7 @@ import styles from "./style";
 export default function NoticeRegisterPage() {
     return(
         <View style={styles.container}> 
-            <MyAppBar/>
+            <MyAppBar title={'Avisos'}/>
             <InputNotice/>
             <MyCBottomNavigation/>
         </View>

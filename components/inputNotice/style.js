@@ -10,6 +10,8 @@ const styles = StyleSheet.create({
         borderColor: '#003566',
         borderWidth: 1,
         margin: 12,
+        borderRadius: 28,
+        height: 200,
     },
     button: {
         width: '30%', 

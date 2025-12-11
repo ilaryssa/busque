@@ -13,12 +13,13 @@ export default function InputNotice() {
                 <TextInput 
                     editable
                     multiline
-                    numberOfLines={4}
+                    numberOfLines={5}
                     maxLength={200}
                     value={value}
                     onChangeText={text => setValue(text)}
                     placeholder="Escreva aqui"
                     style={styles.textInput}
+                    textAlignVertical="top"
                 />
                 <Button 
                     mode='contained'
