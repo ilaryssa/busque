@@ -1,13 +1,14 @@
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Button } from "react-native-paper";
-import { View, Text } from "react-native";
+import { View, Text, Image } from "react-native";
 import styles from "./style";
 
 export default function InicialPage() {
     return (
         <SafeAreaView style={styles.container}>
 
-            <Text style={styles.title}>BUSQUE</Text>
+            {/* <Text style={styles.title}>BUSQUE</Text> */}
+            <Image source={require('../../assets/logo.png')} style={{height: 200, width: 250, marginTop: 100}}/>
 
             <Text style={styles.paragraph}>Acompanhe as rotas dos ônibus universitários de Quixadá em tempo real.</Text>
             

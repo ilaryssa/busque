@@ -10,6 +10,7 @@ export default function CapacityButton({type}) {
                 labelStyle={{fontSize: 32, lineHeight: 50}}  
                 textColor='#003566'
                 style={styles.button}
+                onPress={() => console.log(`o ônibus está ${type}`)}
             >
                 {type}
             </Button>

@@ -5,20 +5,20 @@ import InicialPage from './pages/inicialPage/InicialPage';
 import MyCBottomNavigation from './components/bottomNavigation/BottomNavigation';
 import NoticeRegisterPage from './pages/noticeRegisterPage/NoticeRegisterPage';
 import InputNotice from './components/inputNotice/InputNotice';
-import GoingRoutePage from './pages/goingRoute/GoingRoutePage';
+import GoingRoutePage from './pages/goingRoutePage/GoingRoutePage';
 import VoucherPage from './pages/voucherPage/VoucherPage';
 import NoticeViewPage from './pages/noticeViewPage/NoticeViewPage';
+import BackRoutePage from './pages/backRoutePage/BackRoutePage';
 
 export default function App() {
   return (
     <SafeAreaProvider style={styles.container}>
-      {/* <MyCBottomNavigation/> */}
       {/* <InicialPage/> */}
+      {/* <VoucherPage/> */}
+      {/* <NoticeViewPage/> */}
       {/* <NoticeRegisterPage/> */}
-      {/* <InputNotice/> */}
       {/* <GoingRoutePage busStop={'Rodoviária'}/> */}
-    {/* <VoucherPage/> */}
-    <NoticeViewPage/>
+      {/* <BackRoutePage busStop={'Lagoa'}/> */}
     </SafeAreaProvider>
   );
 }
