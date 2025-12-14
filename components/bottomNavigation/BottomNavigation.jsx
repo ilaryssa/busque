@@ -15,8 +15,8 @@ const MyCBottomNavigation = () => {
 return (
     <BottomNavigation.Bar
         navigationState={{ index, routes }}
-        // onIndexChange={setIndex}
-        // renderScene={() => null}
+        onIndexChange={setIndex}
+        renderScene={() => null}
         onTabPress={({ route }) => {
           const newIndex = routes.findIndex((r) => r.key === route.key);
           if (newIndex !== -1) {

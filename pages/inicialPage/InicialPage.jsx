@@ -3,6 +3,7 @@ import { Button } from "react-native-paper";
 import { View, Text, Image } from "react-native";
 import styles from "./style";
 
+
 export default function InicialPage() {
     return (
         <SafeAreaView style={styles.container}>

@@ -22,6 +22,8 @@ const styles = StyleSheet.create({
     width: '80%',
     color: '#fffeee', 
     fontSize: 30,
+    textAlign: 'center',
+    margin:20
   },
   buttonsContainer: {
     width: '80%',
