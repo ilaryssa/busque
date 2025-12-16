@@ -1,3 +1,4 @@
+import React from 'react';
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Button } from "react-native-paper";
 import { View, Text, Image } from "react-native";
@@ -16,7 +17,7 @@ export default function InicialPage() {
             
             <View style={styles.buttonsContainer}>
                 <Button 
-                onPress={() => navigation.navigate('VoucherPage')}
+                onPress={() => navigation.navigate('RoutePage')}
                 mode='contained' 
                 textColor='#003566' 
                 buttonColor="#fffeee" 

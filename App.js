@@ -10,6 +10,7 @@ import GoingRoutePage from './pages/goingRoutePage/GoingRoutePage';
 import VoucherPage from './pages/voucherPage/VoucherPage';
 import NoticeViewPage from './pages/noticeViewPage/NoticeViewPage';
 import BackRoutePage from './pages/backRoutePage/BackRoutePage';
+import RoutePage from './pages/RoutePage/RoutePage';
 
 const Stack = createNativeStackNavigator();
 
@@ -19,9 +20,10 @@ export default function App() {
       <SafeAreaView style={styles.container}>
         <StatusBar style="auto" />
         <NavigationContainer>
-          <Stack.Navigator initialRouteName="NoticeView">
+          <Stack.Navigator initialRouteName="Inicial">
              {/*Sempre que quiser ir para uma página ou outra, muda a key aqui! Fica mais fácil.*/}
             <Stack.Screen name="Inicial" component={InicialPage} />
+            <Stack.Screen name="RoutePage" component={RoutePage} />
             <Stack.Screen name="Voucher" component={VoucherPage} />
             <Stack.Screen name="NoticeView" component={NoticeViewPage} />
             <Stack.Screen name="NoticeRegister" component={NoticeRegisterPage} />

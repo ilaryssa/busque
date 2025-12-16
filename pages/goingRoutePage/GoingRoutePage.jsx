@@ -7,7 +7,6 @@ import { Text } from 'react-native-paper';
 export default function GoingRoutePage({busStop}) {
     return(
         <View style={{flex: 1, width:'100%', justifyContent:'center', backgroundColor: '#fffeee'}}>
-            <MyAppBar/>
             <View>
                 <Text style={{
                     textAlign:'center',
