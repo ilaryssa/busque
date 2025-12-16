@@ -2,9 +2,10 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { Button } from "react-native-paper";
 import { View, Text, Image } from "react-native";
 import styles from "./style";
-
+import {useNavigation} from '@react-navigation/native';
 
 export default function InicialPage() {
+    const navigation = useNavigation();
     return (
         <SafeAreaView style={styles.container}>
 
@@ -15,7 +16,7 @@ export default function InicialPage() {
             
             <View style={styles.buttonsContainer}>
                 <Button 
-                onPress={() => console.log('Você é um estudante!')}
+                onPress={() => navigation.navigate('VoucherPage')}
                 mode='contained' 
                 textColor='#003566' 
                 buttonColor="#fffeee" 
