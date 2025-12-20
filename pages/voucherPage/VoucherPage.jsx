@@ -5,10 +5,9 @@ import MyCBottomNavigation from "../../components/bottomNavigation/BottomNavigat
 
 export default function VoucherPage() {
     return(
-        <View style={{flex:1, width: '100%'}}>
+        <View style={{flex:1, width: '100%', backgroundColor: '#fffeee'}}>
             <MyAppBar title={'Cupom'}/>
             <VoucherCard/>
-            <MyCBottomNavigation/>
         </View>
     );
 }

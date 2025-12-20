@@ -5,10 +5,9 @@ import MyCBottomNavigation from "../../components/bottomNavigation/BottomNavigat
 
 export default function NoticeViewPage() {
     return (
-        <View style={{flex: 1, width: '100%', }}>
-            <MyAppBar title={'Avisos'}/>
+        <View style={{flex: 1, width: '100%', backgroundColor: '#fffeee'}}>
+            <MyAppBar title={'Avisos'} showBack='false'/>
             <NoticeViewCard/>
-            <MyCBottomNavigation/>
         </View>
     )
 }

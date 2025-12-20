@@ -11,13 +11,13 @@ export default function InicialPage() {
         <SafeAreaView style={styles.container}>
 
             {/* <Text style={styles.title}>BUSQUE</Text> */}
-            <Image source={require('../../assets/logo.png')} style={{height: 200, width: 250, marginTop: 100}}/>
+            <Image source={require('../../assets/logo.png')} style={{height: 200, width: 250, justifyContent: 'flex-start',}}/>
 
             <Text style={styles.paragraph}>Acompanhe as rotas dos ônibus universitários de Quixadá em tempo real.</Text>
             
             <View style={styles.buttonsContainer}>
                 <Button 
-                onPress={() => navigation.navigate('RoutePage')}
+                onPress={() => navigation.navigate('UserArea', { InicialPage: 'rota' })}
                 mode='contained' 
                 textColor='#003566' 
                 buttonColor="#fffeee" 
