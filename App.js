@@ -10,6 +10,7 @@ import RoutePage from './pages/RoutePage/RoutePage';
 import VoucherPage from './pages/voucherPage/VoucherPage';
 import NoticeViewPage from './pages/noticeViewPage/NoticeViewPage';
 import UserArea from './pages/userArea/UserArea';
+import LoginPage from './pages/loginPage/LoginPage';
 
 const Stack = createNativeStackNavigator();
 
@@ -18,8 +19,9 @@ export default function App() {
     <SafeAreaProvider style={styles.container}>
       <NavigationContainer>
         <Stack.Navigator screenOptions={{ headerShown: false }}>
-           <Stack.Screen name="Inicial" component={InicialPage} />
-            <Stack.Screen name="UserArea" component={UserArea} />
+          <Stack.Screen name="Inicial" component={InicialPage} />
+          <Stack.Screen name="UserArea" component={UserArea} />
+          <Stack.Screen name="Login" component={LoginPage} />
         </Stack.Navigator>
 
       </NavigationContainer>

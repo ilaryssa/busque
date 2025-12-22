@@ -10,9 +10,7 @@ import MyBottomNavigation from '../../components/bottomNavigation/BottomNavigati
 export default function UserArea() {
   const route = useRoute();
 
-  const [currentTab, setCurrentTab] = useState(
-    route.params?.initialTab || 'rota'
-  );
+  const [currentTab, setCurrentTab] = useState('rota');
 
   return (
     <View style={{ flex: 1 }}>

@@ -1,11 +1,12 @@
 // components/RouteCard.jsx
 import { View, Text, StyleSheet } from 'react-native';
+import { Card } from 'react-native-paper';
 
-export default function RouteCard({ variant = 'active' }) {
+export default function RouteCard({ variant = 'active', route = 'ida' }) {
   const isNext = variant === 'next';
 
   return (
-    <View style={[styles.card, isNext && styles.nextCard]}>
+    <Card style={[styles.card, isNext && styles.nextCard]}>
 
       <View style={[styles.header, isNext && styles.nextHeader]}>
         <View>
@@ -29,17 +30,20 @@ export default function RouteCard({ variant = 'active' }) {
           </View>
         ))}
       </View>
-    </View>
+    </Card>
   );
 }
 
 const styles = StyleSheet.create({
   card: {
+    flex: 1,
+    alignItems: 'center',
+    marginTop: 50,
     width: 'auto',
     borderRadius: 16,
     backgroundColor: '#fffeee',
     borderColor: '#003566',
-    borderWidth: 2,
+    borderWidth: 1,
     marginRight: 16,
     overflow: 'hidden',
   },
