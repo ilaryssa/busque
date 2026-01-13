@@ -11,6 +11,9 @@ import VoucherPage from './pages/voucherPage/VoucherPage';
 import NoticeViewPage from './pages/noticeViewPage/NoticeViewPage';
 import UserArea from './pages/userArea/UserArea';
 import LoginPage from './pages/loginPage/LoginPage';
+import DriverRoutePage from './pages/driverArea/driverRoutePage/DriverRoutePage';
+import DriverArea from './pages/driverArea/driverRoutePage/DriverArea';
+import DrivingRoute from './pages/driverArea/driverRoutePage/DrivingRoute';
 
 const Stack = createNativeStackNavigator();
 
@@ -22,10 +25,13 @@ export default function App() {
           <Stack.Screen name="Inicial" component={InicialPage} />
           <Stack.Screen name="UserArea" component={UserArea} />
           <Stack.Screen name="Login" component={LoginPage} />
+          <Stack.Screen name="DriverArea" component={DriverArea} />
+          <Stack.Screen name="DrivingRoute" component={DrivingRoute} />
         </Stack.Navigator>
 
       </NavigationContainer>
     </SafeAreaProvider>
+
   );
 }
 const styles = StyleSheet.create({

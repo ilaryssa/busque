@@ -1,8 +1,8 @@
 // components/RouteCard.jsx
 import { View, Text, StyleSheet } from 'react-native';
-import { Card } from 'react-native-paper';
+import { Button, Card } from 'react-native-paper';
 
-export default function RouteCard({ variant = 'active', route = 'ida' }) {
+export default function RouteCard({ variant = 'active', route = 'ida', isDriver = false, onStart }) {
   const isNext = variant === 'next';
 
   return (
@@ -30,6 +30,24 @@ export default function RouteCard({ variant = 'active', route = 'ida' }) {
           </View>
         ))}
       </View>
+
+        {isDriver && !isNext && (
+          <Button
+            mode='contained'
+            onPress={onStart}
+            textColor='#fffeee' 
+            buttonColor="#003566" 
+            labelStyle={{fontSize: 20}} 
+            contentStyle={{padding: 10}} 
+            style={{
+                borderRadius: 30,
+                marginHorizontal: 30,
+            }}
+          >
+            Iniciar Viagem
+          </Button>
+        )}
+
     </Card>
   );
 }

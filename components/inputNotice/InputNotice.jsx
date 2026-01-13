@@ -4,7 +4,7 @@ import { Button } from "react-native-paper";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context"
 import styles from "./style";
 
-export default function InputNotice() {
+export default function InputNotice({onSuccess}) {
     const [value, setValue] = React.useState('');
 
     return(
@@ -25,8 +25,9 @@ export default function InputNotice() {
                     mode='contained'
                     onPress={() => {
                         Keyboard.dismiss(); //deve fechar o teclado tambem, ou seja, deixar de estar focus
-                        alert('Mensagem enviada!');
+                        // alert('Mensagem enviada!');
                         setValue(''); 
+                        onSuccess();
                     }}
                     style={styles.button}
                     textColor='#fffeee'

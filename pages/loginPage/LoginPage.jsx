@@ -78,7 +78,11 @@ export default function LoginPage({navigation}) {
             </View>
 
             <Button
-                onPress={() => alert('a partir daqui começa as telas do motorista')}
+                // onPress={() => alert('a partir daqui começa as telas do motorista')}
+                // onPress={() => {
+                //     navigation.replace('UserArea', {role: 'driver', bus}) 
+                // }}
+                onPress={() => navigation.navigate('DriverArea')}
                 mode='contained' 
                 textColor='#003566' 
                 buttonColor="#fffeee" 
