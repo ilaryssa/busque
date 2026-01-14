@@ -3,10 +3,17 @@ import ConfirmButton from '../../components/confirmButton/ConfirmButton';
 import { View } from "react-native";
 import MyAppBar from '../../components/myAppBar/MyAppBar';
 import { Text } from 'react-native-paper';
+import { useNavigation } from "@react-navigation/native";
+import { useRoute } from '@react-navigation/native';
 
-export default function GoingRoutePage({busStop}) {
+export default function GoingRoutePage() {
+    const navigation = useNavigation();
+    const route = useRoute();
+    const {busStop} = route.params;
+    
     return(
         <View style={{flex: 1, width:'100%', justifyContent:'center', backgroundColor: '#fffeee'}}>
+            <MyAppBar onBack={() => navigation.goBack()} canGoBack='true'/>
             <View>
                 <Text style={{
                     textAlign:'center',

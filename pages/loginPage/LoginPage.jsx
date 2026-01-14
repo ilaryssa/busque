@@ -82,7 +82,12 @@ export default function LoginPage({navigation}) {
                 // onPress={() => {
                 //     navigation.replace('UserArea', {role: 'driver', bus}) 
                 // }}
-                onPress={() => navigation.navigate('DriverArea')}
+                onPress={() => {
+                    if (!bus) return; // impede entrar sem escolher ônibus
+                    navigation.navigate('DriverArea', { bus });
+                    // console.log(bus);
+                }}
+
                 mode='contained' 
                 textColor='#003566' 
                 buttonColor="#fffeee" 

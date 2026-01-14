@@ -3,6 +3,7 @@ import { Keyboard, TextInput, TouchableWithoutFeedback } from "react-native"
 import { Button } from "react-native-paper";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context"
 import styles from "./style";
+import { createNotice } from "../../src/api/noticeService";
 
 export default function InputNotice({onSuccess}) {
     const [value, setValue] = React.useState('');
@@ -26,8 +27,9 @@ export default function InputNotice({onSuccess}) {
                     onPress={() => {
                         Keyboard.dismiss(); //deve fechar o teclado tambem, ou seja, deixar de estar focus
                         // alert('Mensagem enviada!');
-                        setValue(''); 
-                        onSuccess();
+                        createNotice(value); //primeiro salva
+                        setValue(''); //depois limpa
+                        onSuccess(); //depois da feedback
                     }}
                     style={styles.button}
                     textColor='#fffeee'

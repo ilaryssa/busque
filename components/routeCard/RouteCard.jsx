@@ -1,8 +1,9 @@
 // components/RouteCard.jsx
 import { View, Text, StyleSheet } from 'react-native';
 import { Button, Card } from 'react-native-paper';
+import { getCurrentRoute, startTrip } from '../../src/api/routeService';
 
-export default function RouteCard({ variant = 'active', route = 'ida', isDriver = false, onStart }) {
+export default function RouteCard({ variant = 'active', isDriver = false, onStart, completedStops = 0, stops = [] }) {
   const isNext = variant === 'next';
 
   return (
@@ -17,16 +18,25 @@ export default function RouteCard({ variant = 'active', route = 'ida', isDriver 
         <View style={{ alignItems: 'flex-end' }}>
           <Text style={styles.time}>12:50</Text>
           <Text style={styles.status}>
-            {isNext ? 'Próxima viagem' : 'Em andamento'}
+            {isNext ? 'Próxima viagem' : 'Em andamento'} 
           </Text>
         </View>
       </View>
 
       <View style={styles.stops}>
-        {['Rodoviária', 'Anexo', 'Constructec', 'Combate', 'UFC'].map((stop, i) => (
+        {/* {['Rodoviária', 'Anexo', 'Constructec', 'Combate', 'UFC'].map((stop, i) => ( */}
+        {stops.map((stop, i) => (
           <View key={i} style={styles.stopRow}>
-            <View style={styles.dot} />
-            <Text style={styles.stopText}>{stop}</Text>
+            {/* <View style={styles.dot} /> */}
+            <View
+              style={[
+                styles.dot,
+                i < completedStops && styles.dotCompleted,
+                i === completedStops && styles.dotCurrent,
+              ]}
+            />
+
+            <Text style={[styles.stopText, isNext && styles.nextStops]}>{stop}</Text>
           </View>
         ))}
       </View>
@@ -116,5 +126,8 @@ const styles = StyleSheet.create({
   stopText: {
     fontSize: 20, 
     color: '#003566',
+  },
+  nextStops: {
+    color: '#999',
   }
 });
