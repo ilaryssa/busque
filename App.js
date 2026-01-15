@@ -28,8 +28,7 @@ export default function App() {
           <Stack.Screen name="Login" component={LoginPage} />
           <Stack.Screen name="DriverArea" component={DriverArea} />
           <Stack.Screen name="GoingRoutePage" component={GoingRoutePage} />
-
-
+          
         </Stack.Navigator>
         {/* <GoingRoutePage busStop={'Rodoviária'} onBack/> */}
 

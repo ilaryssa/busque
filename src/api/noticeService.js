@@ -1,21 +1,22 @@
-// api/noticeService.js
-import { notices, currentTrip } from "./mockData"
+// src/api/noticeService.js
+const BASE_URL = "http://192.168.100.183:3001"; // troca pelo seu IP
 
-export function createNotice(text) {
-  const now = new Date()
+export async function createNotice(notice) {
+  const res = await fetch(`${BASE_URL}/notices`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(notice),
+  });
 
-  notices.unshift({
-    id: String(Date.now()),
-    text,
-    bus: currentTrip.bus,
-    hour: now.toLocaleTimeString("pt-BR", {
-      hour: "2-digit",
-      minute: "2-digit",
-    }),
-    date: now.toLocaleDateString("pt-BR"),
-  })
+  if (!res.ok) throw new Error("Falha ao criar aviso");
+  return res.json();
 }
 
-export function getNotices() {
-  return notices
+export async function getNotices() {
+  const res = await fetch(`${BASE_URL}/notices`);
+  if (!res.ok) throw new Error("Falha ao buscar avisos");
+  const data = await res.json();
+
+  // Mais recentes primeiro
+  return data.sort((a, b) => (b.createdAt ?? 0) - (a.createdAt ?? 0));
 }

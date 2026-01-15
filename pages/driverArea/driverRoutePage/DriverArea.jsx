@@ -7,8 +7,9 @@ import DriverRoutePage from './DriverRoutePage';
 import NoticeRegisterPage from '../../noticeRegisterPage/NoticeRegisterPage';
 import AlertChoice from '../../../components/alertChoice/AlertChoice';
 
-export default function DriverArea() {
+export default function DriverArea({route}) {
   const navigation = useNavigation();
+  const {bus} = route.params;
 
   const [currentTab, setCurrentTab] = useState('rota');
   const [showExitAlert, setShowExitAlert] = useState(false);
@@ -34,6 +35,7 @@ export default function DriverArea() {
 
       <AlertChoice
         visible={showExitAlert}
+        message={'Tem certeza que deseja sair da sua conta?'}
         onCancel={() => setShowExitAlert(false)}
         onConfirm={() => {
           setShowExitAlert(false);

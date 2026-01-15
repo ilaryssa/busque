@@ -43,6 +43,7 @@ export default function LoginPage({navigation}) {
                 <TextInput
                     label='Senha'
                     mode="outlined"
+                    secureTextEntry
                     style={{backgroundColor: '#003566', width: '80%', alignSelf: 'center', }}
                     textColor="#fffeee"
                     outlineColor="#fffeee"

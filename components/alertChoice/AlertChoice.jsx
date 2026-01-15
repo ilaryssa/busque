@@ -1,13 +1,13 @@
 import { Modal, View, Text, StyleSheet } from "react-native";
 import { Button } from "react-native-paper";
 
-export default function AlertChoice({ visible, onConfirm, onCancel }) {
+export default function AlertChoice({ visible, onConfirm, onCancel, message }) {
   return (
     <Modal transparent visible={visible} animationType="fade">
       <View style={styles.overlay}>
         <View style={styles.box}>
           <Text style={styles.title}>
-            Tem certeza que deseja sair da sua conta?
+            {message}
           </Text>
 
           {/* <Text style={styles.text}>

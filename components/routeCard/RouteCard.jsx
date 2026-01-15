@@ -1,24 +1,25 @@
 // components/RouteCard.jsx
 import { View, Text, StyleSheet } from 'react-native';
 import { Button, Card } from 'react-native-paper';
-import { getCurrentRoute, startTrip } from '../../src/api/routeService';
 
-export default function RouteCard({ variant = 'active', isDriver = false, onStart, completedStops = 0, stops = [] }) {
-  const isNext = variant === 'next';
+export default function RouteCard({ variant = 'active', isDriver = false, onStart, completedStops = 0, stops = [], title, bus, time, status }) {
+  const isNextVisual = variant === 'next';
 
   return (
-    <Card style={[styles.card, isNext && styles.nextCard]}>
+    <Card style={[styles.card, isNextVisual && styles.nextCard]}>
 
-      <View style={[styles.header, isNext && styles.nextHeader]}>
+      <View style={[styles.header, isNextVisual && styles.nextHeader]}>
         <View>
-          <Text style={styles.title}>Rodoviária → UFC</Text>
-          <Text style={styles.subtitle}>Ônibus A</Text>
+          <Text style={styles.title}>{title}</Text>
+          <Text style={styles.subtitle}>{bus}</Text>
         </View>
 
         <View style={{ alignItems: 'flex-end' }}>
-          <Text style={styles.time}>12:50</Text>
+          <Text style={styles.time}>{time}</Text>
           <Text style={styles.status}>
-            {isNext ? 'Próxima viagem' : 'Em andamento'} 
+            {status === 'next' && 'Próxima viagem'} 
+            {status === 'active' && 'Em andamento'}
+            {status === 'finished' && 'Finalizada'}
           </Text>
         </View>
       </View>
@@ -31,17 +32,20 @@ export default function RouteCard({ variant = 'active', isDriver = false, onStar
             <View
               style={[
                 styles.dot,
+                isNextVisual && styles.nextDot,
                 i < completedStops && styles.dotCompleted,
                 i === completedStops && styles.dotCurrent,
               ]}
             />
 
-            <Text style={[styles.stopText, isNext && styles.nextStops]}>{stop}</Text>
+            <Text style={[styles.stopText, isNextVisual && styles.nextStops]}>{stop}</Text>
+
+            
           </View>
         ))}
       </View>
 
-        {isDriver && !isNext && (
+        {isDriver && !isNextVisual && (
           <Button
             mode='contained'
             onPress={onStart}
@@ -129,5 +133,14 @@ const styles = StyleSheet.create({
   },
   nextStops: {
     color: '#999',
-  }
+  },
+  dotCompleted: {
+    backgroundColor: '#003566',
+  },
+  dotCurrent: {
+    backgroundColor: '#999',
+  },
+  nextDot: {
+    borderColor: '#999',
+  },
 });

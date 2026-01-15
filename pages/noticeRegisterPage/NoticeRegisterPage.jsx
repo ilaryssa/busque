@@ -1,25 +1,32 @@
+import React, { useState } from "react";
 import { View } from "react-native";
-import InputNotice from "../../components/inputNotice/InputNotice";
 import MyAppBar from "../../components/myAppBar/MyAppBar";
-import styles from "./style";
-import { useState } from "react";
+import InputNotice from "../../components/inputNotice/InputNotice";
 import AlertSuccess from "../../components/alertSuccess/AlertSuccess";
+import styles from "./style";
+import { useRoute } from "@react-navigation/native";
 
 export default function NoticeRegisterPage() {
-    const [successVisible, setSuccessVisible] = useState(false);
+    const route = useRoute();
+  const bus = route?.params?.bus;
 
-    return(
-        <View style={styles.container}> 
-            <MyAppBar title={'Avisos'} showProfile/>
-            
-            <InputNotice onSuccess={() => setSuccessVisible(true)}/>
+  const [successVisible, setSuccessVisible] = useState(false);
 
-            <AlertSuccess
-                visible={successVisible}
-                textMessage={"Sua mensagem foi enviada com sucesso!"}
-                buttonMessage={"Ok"}
-                onClose={() => setSuccessVisible(false)}
-            />
-        </View>
-    );
+  return (
+    <View style={styles.container}>
+      <MyAppBar title={'Avisos'} showProfile />
+
+      <InputNotice
+        busId={bus} // <<< aqui
+        onSuccess={() => setSuccessVisible(true)}
+      />
+
+      <AlertSuccess
+        visible={successVisible}
+        textMessage={"Sua mensagem foi enviada com sucesso!"}
+        buttonMessage={"Ok"}
+        onClose={() => setSuccessVisible(false)}
+      />
+    </View>
+  );
 }
