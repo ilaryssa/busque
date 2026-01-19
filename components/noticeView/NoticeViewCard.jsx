@@ -9,7 +9,7 @@ export default function NoticeViewCard({busId, hour, message}) {
                 <Text style={{fontSize: 15, color: '#003566'}}>{hour}</Text>
             </View>
             <Card style={{backgroundColor: '#fffeee', borderColor: '#003566', borderWidth: 1, margin: 10, width: 360, borderRadius: 28}}>
-                <Card.Content style={{alignItems:'center', gap:20, paddingBottom:20}}>
+                <Card.Content style={{alignItems:'left', gap:20, paddingBottom:20}}>
                     <Text style={{fontSize: 20, color: '#003566'}}>{message}</Text>
 
                 </Card.Content>

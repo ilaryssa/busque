@@ -18,20 +18,29 @@ export default function GoingRoutePage() {
   const isFirstStop = currentStopIndex === 0;
 
   function handleConfirmStop() {
-    // (opcional) aqui você salva no "db" que confirmou essa parada
-
     if (isLastStop) {
         navigation.navigate('DriverArea', {
             screen: 'DriverRoutePage', // ou o name real dessa screen no stack do motorista
             params: { bus },
+            bus: bus,
         });
         return;
     }
-  navigation.replace('GoingRoutePage', {
-    bus,
-    stops,
-    currentStopIndex: currentStopIndex + 1,
-  });
+
+    if(isFirstStop) {
+        navigation.replace('GoingRoutePage', {
+          bus,
+          stops,
+          currentStopIndex: currentStopIndex + 1,
+        });
+        return;
+    }
+
+    navigation.replace('GoingRoutePage', {
+      bus,
+      stops,
+      currentStopIndex: currentStopIndex + 1,
+    });
   }
 
   return (
@@ -53,6 +62,17 @@ export default function GoingRoutePage() {
         }}>
           Informe a lotação nessa parada
         </Text> */}
+
+        <Text style={{
+          textAlign:'center',
+          alignSelf: 'center',
+          fontSize: 32,
+          color: 'grey',
+          paddingTop: 50,
+          width: '70%'
+        }}>
+          A cada parada confirme a chegada do ônibus.
+        </Text>
       </View>
 
       <View style={{ flex: 1, justifyContent:'center', alignItems:'center', backgroundColor:'#fffeee' }}>
@@ -61,7 +81,7 @@ export default function GoingRoutePage() {
         <CapacityButton type='Lotado'/> */}
 
         <ConfirmButton
-          type={isLastStop ? 'Finalizar viagem' : 'Confirmar parada'}
+          type={isLastStop ? 'Finalizar viagem' : isFirstStop ? 'Confirmar saída' : 'Confirmar parada'}
           message={isLastStop ? 'Viagem finalizada' : 'Segue para o próximo ponto'}
           onPress={handleConfirmStop}   // <<< precisa existir no ConfirmButton
         />
@@ -73,7 +93,7 @@ export default function GoingRoutePage() {
         onCancel={() => setShowExitAlert(false)}
         onConfirm={() => {
             setShowExitAlert(false);
-            navigation.goBack(); // agora sim sai
+            navigation.goBack(); 
         }}
         />
     </View>

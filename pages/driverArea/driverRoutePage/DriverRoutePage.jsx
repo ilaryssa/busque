@@ -26,7 +26,7 @@ export default function DriverRoutePage() {
                 <RouteCard 
                     variant='default'
                     title='UFC → Rodoviária'
-                    bus='Ônibus A'
+                    bus={`Ônibus ${bus}`}
                     time='12:25'
                     completedStops={-1}
                     stops={['UFC', 'Lagoa', 'Geladão', 'Rodoviária']}

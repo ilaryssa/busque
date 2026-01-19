@@ -1,5 +1,5 @@
 // src/api/noticeService.js
-const BASE_URL = "http://192.168.100.183:3001"; // troca pelo seu IP
+const BASE_URL = process.env.EXPO_PUBLIC_API_URL; // troca pelo seu IP
 
 export async function createNotice(notice) {
   const res = await fetch(`${BASE_URL}/notices`, {
