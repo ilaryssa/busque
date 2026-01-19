@@ -2,10 +2,11 @@ import React from "react";
 import { useState } from "react";
 import { StyleSheet, View, Text, TouchableWithoutFeedback, Keyboard } from "react-native";
 import MyAppBar from "../../components/myAppBar/MyAppBar";
-import { Button, RadioButton, TextInput } from "react-native-paper";
+import { Button, RadioButton, TextInput, Snackbar } from "react-native-paper";
 
 export default function LoginPage({navigation}) {
     const [bus, setBus] = useState(null);
+    const [snackVisible, setSnackVisible] = useState(false);
 
     return (
         <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
@@ -84,7 +85,10 @@ export default function LoginPage({navigation}) {
                 //     navigation.replace('UserArea', {role: 'driver', bus}) 
                 // }}
                 onPress={() => {
-                    if (!bus) return; // impede entrar sem escolher ônibus
+                    if (!bus) {
+                        setSnackVisible(true);
+                        return;
+                    } 
                     navigation.navigate('DriverArea', { bus });
                     // console.log(bus);
                 }}
@@ -102,6 +106,16 @@ export default function LoginPage({navigation}) {
             >
                 Entrar
             </Button>
+
+            <Snackbar
+                visible={snackVisible}
+                onDismiss={() => setSnackVisible(false)}
+                duration={3000}
+                >
+                Selecione um ônibus para continuar.
+            </Snackbar>
+
+
         </View>
         </TouchableWithoutFeedback>
     );

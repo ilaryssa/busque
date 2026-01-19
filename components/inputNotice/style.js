@@ -18,6 +18,10 @@ const styles = StyleSheet.create({
         alignSelf: 'flex-end',
         marginEnd: 20,
         backgroundColor: '#003566'
+    },
+    buttonDelete: {
+        margin: 20,
+        backgroundColor: '#fffeee',
     }
 })
 

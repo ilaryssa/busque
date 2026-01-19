@@ -20,3 +20,24 @@ export async function getNotices() {
   // Mais recentes primeiro
   return data.sort((a, b) => (b.createdAt ?? 0) - (a.createdAt ?? 0));
 }
+
+export async function deleteNotice(busId) {
+  const res = await fetch(`${BASE_URL}/notices?busId=${busId}&_sort=createdAt&_order=desc&_limit=1`);
+  const data = await res.json();
+
+  if (!data.length) return false;
+
+  const lastNotice = data[0];
+
+  const now = Date.now();
+  const diff = now - lastNotice.createdAt;
+
+  // 2 minutos = 120000 ms
+  if (diff > 120000) return false;
+
+  await fetch(`${BASE_URL}/notices/${lastNotice.id}`, {
+    method: "DELETE",
+  });
+
+  return true;
+}
